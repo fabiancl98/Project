@@ -1,6 +1,7 @@
 
 import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
+import Logic.Cliente;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -125,11 +126,11 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String usuario = jTextField1.getText ();
         String paswd = jPasswordField1.getText();
-        
+        Cliente cliente = new Cliente();
     if(usuario.isEmpty() || paswd.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Algún campo está vacio");
     }else{
-        if(usuario.equals("usuario1") && paswd.equals("1234")) {
+        if(cliente.logIn(usuario, paswd)) {
             JOptionPane.showMessageDialog(null, "Bienvenido");
             panelControl pc = new panelControl();
             pc.setVisible(true);
